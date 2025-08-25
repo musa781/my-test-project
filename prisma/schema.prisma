@@ -9,24 +9,25 @@ generator client {
 // enough when changing adapters.
 // See https://www.prisma.io/docs/orm/reference/prisma-schema-reference#string for more information
 datasource db {
-  provider = "sqlite"
-  url      = "file:dev.sqlite"
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+  relationMode = "prisma"
 }
 
 model Session {
-  id            String    @id
-  shop          String
-  state         String
-  isOnline      Boolean   @default(false)
-  scope         String?
+  id            String   @id @default(uuid()) @db.VarChar(255)
+  shop          String   @db.VarChar(255)
+  state         String   @db.VarChar(255)
+  isOnline      Boolean  @default(false)
+  scope         String?  @db.VarChar(255)
   expires       DateTime?
-  accessToken   String
+  accessToken   String   @db.VarChar(255)
   userId        BigInt?
-  firstName     String?
-  lastName      String?
-  email         String?
-  accountOwner  Boolean   @default(false)
-  locale        String?
-  collaborator  Boolean?  @default(false)
-  emailVerified Boolean?  @default(false)
+  firstName     String?  @db.VarChar(255)
+  lastName      String?  @db.VarChar(255)
+  email         String?  @db.VarChar(255)
+  accountOwner  Boolean  @default(false)
+  locale        String?  @db.VarChar(255)
+  collaborator  Boolean? @default(false)
+  emailVerified Boolean? @default(false)
 }

@@ -1,18 +1,26 @@
 -- CreateTable
-CREATE TABLE "Session" (
-    "id" TEXT NOT NULL PRIMARY KEY,
-    "shop" TEXT NOT NULL,
-    "state" TEXT NOT NULL,
-    "isOnline" BOOLEAN NOT NULL DEFAULT false,
-    "scope" TEXT,
-    "expires" DATETIME,
-    "accessToken" TEXT NOT NULL,
-    "userId" BIGINT,
-    "firstName" TEXT,
-    "lastName" TEXT,
-    "email" TEXT,
-    "accountOwner" BOOLEAN NOT NULL DEFAULT false,
-    "locale" TEXT,
-    "collaborator" BOOLEAN DEFAULT false,
-    "emailVerified" BOOLEAN DEFAULT false
-);
+CREATE TABLE `Session` (
+    `id` VARCHAR(255) NOT NULL,
+    `shop` VARCHAR(255) NOT NULL,
+    `state` VARCHAR(255) NOT NULL,
+    `isOnline` BOOLEAN NOT NULL DEFAULT false,
+    `scope` VARCHAR(255) NULL,
+    `expires` DATETIME(3) NULL,
+    `accessToken` VARCHAR(255) NOT NULL,
+    `userId` BIGINT NULL,
+    `firstName` VARCHAR(255) NULL,
+    `lastName` VARCHAR(255) NULL,
+    `email` VARCHAR(255) NULL,
+    `accountOwner` BOOLEAN NOT NULL DEFAULT false,
+    `locale` VARCHAR(255) NULL,
+    `collaborator` BOOLEAN NULL DEFAULT false,
+    `emailVerified` BOOLEAN NULL DEFAULT false,
+    PRIMARY KEY (`id`)
+) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+
+
+
+
+
+
